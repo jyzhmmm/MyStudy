@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .maxbox {
+            width: 300px;
+            margin: 100px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        li {
+            display: none;
+            list-style: none;
+            background-color: skyblue;
+            margin-top: 5px;
+        }
+        
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="maxbox">
+        <textarea cols="30" rows="10" class="tex"></textarea>
+        <button class="btn">发布</button>
+        <div class="minbox">
+            <ul></ul>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $(".btn").on("click", function() {
+                let li = $("<li></li>");
+                li.html($(".tex").val());
+                $("ul").prepend(li);
+                li.slideDown();
+                $(".tex").val("")
+            })
+        })
+    </script>
+</body>
+
+</html>

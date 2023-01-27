@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  async函数，返回一个promise对象，可以解决异步编程
+        async function fn() {
+            //    return 'wm'  // 返回一个字符串，那么promise对象的状态是成功的
+            //    return      //  不返回结果，promise对象的状态也是成功的
+            //    throw new Error('错误')    //  抛出错误，promise对象状态是失败的
+
+            return new Promise((resolve, reject) => { //  返回promise对象则如下
+                resolve('满足成功了') //  返回成功的，那么async返回的promise对象状态也是成功的，值就是该返回的值
+                    // reject('失败了')             //  返回失败的，那么async返回的promise对象状态也是失败的，值就是该返回的值
+            })
+        }
+
+        const result = fn()
+        result.then(value => {
+            console.log(value)
+        })
+    </script>
+</body>
+
+</html>

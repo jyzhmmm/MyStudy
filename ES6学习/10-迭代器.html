@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const animal = ['猴子', '老虎', '大象']
+            // 使用for of 遍历数组 ，for of不能遍历对象，只能遍历带有iterator接口的数据， for of就是为带有iterator接口遍历自定义属性服务的
+            // for (let val of animal) { // 使用for in 遍历数组，得到的是数组索引值
+            //     console.log(val)
+            // }
+
+        // 原理：创建一个指针对象，指向当前数据结构的起始位置
+        //       第一次调用对象的next方法，指针自动指向数据结构的第一个成员
+        //       接下来不断调用next方法，指针一直往后移动，直到指向最后一个成员
+        //       每调用next方法，返回一个包含value和done属性的对象，done属性表示有没有遍历完
+        let iterator = animal[Symbol.iterator]();
+        // 调用next方法
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+    </script>
+</body>
+
+</html>

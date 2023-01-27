@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first {
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+            padding: 5px;
+            margin: 100px;
+            border: 5px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first"></div>
+    <script>
+        const first = document.querySelector('.first');
+        //   以带有定位盒子为准 没有父亲则以body为准
+        console.log(first.offsetTop);
+        console.log(first.offsetLeft);
+        //  可以得到元素大小 宽高包含padding border width
+        console.log(first.offsetWidth);
+        console.log(first.offsetHeight);
+        //  返回带有定位的父亲，没有则返回body
+        console.log(first.offsetParent)
+
+        //  元素可视区client动态得到元素边框大小，元素大小
+        console.log(first.clientWidth); // 返回padding 内容区宽度，不含边框
+        console.log(first.clientHeight); // 返回padding 内容区高度，不含边框
+        console.log(first.clientTop) //返回元素上边框大小
+        console.log(first.clientLeft) //返回元素左边框大小
+
+        // 元素滚动scroll,得到元素大小，滚动距离
+        console.log(first.scrollWidth); //返回自身实际宽度(超出内容也包括)，不含边框
+        console.log(first.scrollHeight); //返回自身实际高度(超出内容也包括)，不含边框
+        console.log(first.scrollTop); //返回被卷去的上侧距离
+        console.log(first.scrollLeft); //返回被卷去的左侧距离
+
+        // 页面滚动距离window.pageYoffset获得
+        //  页面滚动window.scroll(x,y),x,y直接写数字不跟单位
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .w {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        
+        .getleft {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -10px;
+            width: 20px;
+            height: 30px;
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 30px;
+            background-color: #554d4d;
+            border-radius: 0 15px 15px 0;
+            z-index: 1;
+        }
+        
+        .getleft:hover,
+        .getright:hover {
+            color: #e2b523;
+        }
+        
+        .getright {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -10px;
+            width: 20px;
+            height: 30px;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: right;
+            line-height: 30px;
+            background-color: #554d4d;
+            border-radius: 15px 0 0 15px;
+            z-index: 1;
+        }
+        
+        .box ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500%;
+        }
+        
+        .box ul li {
+            float: left;
+            list-style-type: none;
+        }
+        
+        .box-ol {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -35px;
+            padding-left: 15px;
+            width: 70px;
+            height: 13px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 7px;
+        }
+        
+        .box-ol li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            margin: 2px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            list-style: none;
+        }
+        
+        .current {
+            background-color: #fff;
+        }
+    </style>
+    <script src="animate.js"></script>
+    <!-- 顺序不能改，先有图在有下面js功能执行-->
+    <script src="carousel.js"></script>
+</head>
+
+<body>
+    <div class="w">
+        <div class="box">
+            <a href="javascript:;" class="getleft">&lt;</a>
+            <a href="javascript:;" class="getright">&gt;</a>
+            <ul>
+                <li><img src="../imagine/carousel_1.jpg" alt=""></li>
+                <li><img src="../imagine/carousel_2.jpg" alt=""></li>
+                <li><img src="../imagine/carousel_3.jpg" alt=""></li>
+                <li><img src="../imagine/carousel_4.jpg" alt=""></li>
+            </ul>
+            <ol class="box-ol">
+
+            </ol>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>112233</p>
+    </div>
+    <input type="text" value="qww">
+    <script>
+        // 获取设置元素内容 html() , 标签也正常输出
+        console.log($("div").html());
+        //  获取设置元素文本内容 text()
+        $("p").text("lzc");
+        //  获取设置表单值 val()
+        $("input").val("pdd")
+    </script>
+</body>
+
+</html>

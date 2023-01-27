@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class animal {
+            get age() { //  使用该属性会调用此方法
+                console.log('我现在7岁了')
+                return '这是我的年龄' // 调用age属性后，返回值就是return结果
+            }
+            set age(num) { //  更改该属性会调用此方法
+                console.log('我现在已经变成' + num + '岁了')
+            }
+        }
+
+        const pig = new animal()
+            // console.log(pig.age)
+        pig.age = 8
+    </script>
+</body>
+
+</html>

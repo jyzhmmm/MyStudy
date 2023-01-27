@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6 引入了新的原始数据类型Symbol,表示独一无二的值，是js第七种数据类型
+        // 1.symbol的值是唯一的，用来解决命名冲突的问题
+        // 2.symbol的值不能与其他数据进行运算
+        // 3.symbol定义的对象属性不能使用for..in..遍历，可以使用Reflect.ownKeys来获取对象的所有键名
+
+        // symbol创建
+        let s = Symbol()
+        console.log(s, typeof s)
+
+        let s1 = Symbol('wm')
+        let s2 = Symbol('wm')
+        console.log(s1 === s2) // 标志不一样
+
+        // Symbol.for创建
+        let s3 = Symbol.for('wm')
+        let s4 = Symbol.for('wm')
+        console.log(s3 === s4) // 通过该函数对象方法创建，可以根据描述字符串得出唯一的symbol值
+
+        // Symbol通常用来给对象添加唯一的属性和方法
+        const obj = {
+                name: 'wm',
+                up() {
+                    console.log(this.name)
+                }
+            }
+            // 给obj对象添加方法
+        const methods = {
+            up: Symbol(),
+            down: Symbol()
+        };
+        obj[methods.up] = function() {
+            console.log('我是添加的唯一的up方法')
+        }
+        obj[methods.down] = function() {
+            console.log('我是添加的唯一的down方法')
+        }
+        console.log(obj[methods.up]())
+
+        // 第二种方式给对象添加方法
+        const obj1 = {
+            name: 'mn',
+            [Symbol('say')]() { // 这样写的方法不能调用，因为每一次标识都是不一样的
+                console.log('唯一的say方法')
+            }
+        }
+    </script>
+</body>
+
+</html>

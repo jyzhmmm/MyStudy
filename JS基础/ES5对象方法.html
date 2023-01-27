@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        // Object.keys(obj)用于获取对象自身所有的属性，返回一个由属性名组成的数组
+        // object.defineProperty(obj,prop,descriptor)定义对象新属性或修改原来属性。
+        // prop修改属性名字，desc目标属性拥有特性，对象形式修改{value:设置属性的值，writable:值是否可以重写，true|false
+        // enumeraable:目标属性是否可以被遍历。configurable:目标属性是否可以被删除，是否可以再次修改特性，true|false}
+
+        //  函数内方法 coll(改变this指向，参数，)函数调用，函数继承
+        //  apply()参数必须是数组(伪数组)，主要利用数组，比如借助数学对象方法求最大值Math.max.apply();
+        //  bind()不会调用原来的函数 可以改变函数内部this指向，返回一个改变this后的新函数，开发常用这个方法；
+        var btn = document.querySelector('button');
+        btn.onclick = function() {
+            this.disabled = true;
+            setInterval(function() {
+                    this.disabled = false
+                }.bind(this), 3000) //  这个this指向btn对象
+        }
+    </script>
+</body>
+
+</html>

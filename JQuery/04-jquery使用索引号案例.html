@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .nav {
+            display: inline-block;
+        }
+        
+        #cloth li a {
+            display: inline-block;
+            width: 30px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid skyblue;
+        }
+        
+        #cloth li :hover {
+            background-color: red;
+        }
+        
+        .content div {
+            display: none;
+        }
+        
+        .content div:first-child {
+            display: block;
+        }
+    </style>
+    <script>
+        $(function() {
+            // 鼠标经过得到index索引号
+            $("#cloth li ").mousemove(function() {
+                let index = $(this).index();
+
+                $(".content div").eq(index).show();
+                $(".content div").eq(index).siblings().hide();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <ul id="cloth">
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">4</a></li>
+        </ul>
+
+        <div class="content">
+            <div>
+                <img src="../../imagine/carousel_1.jpg" alt="">
+            </div>
+            <div>
+                <img src="../../imagine/carousel_2.jpg" alt="">
+            </div>
+            <div>
+                <img src="../../imagine/carousel_3.jpg" alt="">
+            </div>
+            <div>
+                <img src="../../imagine/carousel_4.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="">
+    <button>点击</button>
+    <div style="border-color: skyblue;"></div>
+    <script>
+        // trim()方法去除字符串两侧空格
+        let inp = document.querySelector('input');
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+        btn.addEventListener('click', function() {
+            if (inp.value.trim() == '') {
+                alert('不能输入空的')
+            } else {
+                div.innerHTML = inp.value;
+            }
+        })
+    </script>
+</body>
+
+</html>

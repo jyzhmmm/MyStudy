@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big_img {
+            position: relative;
+            width: 450px;
+            margin: 100px;
+            border: 1px solid #ccc;
+        }
+        
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: #FEDE4F;
+            cursor: move;
+            opacity: 0.5;
+        }
+        
+        .big {
+            display: none;
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            top: 0;
+            left: 460px;
+        }
+        
+        .IMG {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big_img">
+        <img src="../imagine/iphone.jpg" alt="">
+        <div class="mask"></div>
+        <div class="big">
+            <img src="../imagine/iphone.jpg" alt="" style="width: 600px;height: 600px;" class="IMG">
+        </div>
+    </div>
+    <script>
+        const big_img = document.querySelector('.big_img');
+        const mask = document.querySelector('.mask');
+        const big = document.querySelector('.big');
+        big_img.addEventListener('mouseover', function(e) {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        })
+        big_img.addEventListener('mouseout', function(e) {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        })
+        big_img.addEventListener('mousemove', function(e) {
+            const X = e.pageX - this.offsetLeft
+            const Y = e.pageY - this.offsetTop
+            const maskX = X - mask.offsetWidth / 2;
+            const maskY = Y - mask.offsetHeight / 2
+            if (maskX <= 0) {
+                maskX = 0;
+            } else if (maskX >= big_img.offsetWidth - mask.offsetWidth) {
+                maskX = big_img.offsetWidth - mask.offsetWidth
+            }
+            if (maskY <= 0) {
+                maskY = 0;
+            } else if (maskY >= big_img.offsetHeight - mask.offsetHeight) {
+                maskY = big_img.offsetHeight - mask.offsetHeight
+            }
+            mask.style.left = maskX + 'px'
+            mask.style.top = maskY + 'px'
+                // 大图片移动
+            const IMG = document.querySelector('.IMG')
+            const bigmax = IMG.offsetWidth - big.offsetWidth
+            const bigX = maskX * bigmax / (big_img.offsetWidth - mask.offsetWidth)
+            const bigY = maskY * bigmax / (big_img.offsetWidth - mask.offsetWidth)
+            IMG.style.top = bigY + 'px';
+            IMG.style.left = bigX + 'px';
+        })
+    </script>
+</body>
+
+</html>

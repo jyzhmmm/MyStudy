@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #j_tb td {
+            padding-left: 10px;
+        }
+        
+        #j_tb tr:hover {
+            background-color: #ddd;
+        }
+        
+        a {
+            float: left;
+            height: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            text-align: center;
+            line-height: 5px;
+            color: #000000;
+        }
+        
+        .num {
+            float: left;
+            width: 30px;
+            height: 15px;
+            border: 1px solid #ccc;
+            border-left: 0;
+            border-right: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table width="300px" border="1px" bordercolor="#ccc" cellspacing="0">
+            <thead style="background-color: lightskyblue;">
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll" />
+                    </th>
+                    <th>商品</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox" class="box" />
+                    </td>
+                    <td>Iphone 13</td>
+                    <td>6500</td>
+                    <td>
+                        <div>
+                            <a href="javascript:;" class="subtract">-</a>
+                            <input type="text" class="num" value="1">
+                            <a href="javascript:;" class="add">+</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" class="box" />
+                    </td>
+                    <td>Iphone 12</td>
+                    <td>6000</td>
+                    <td>
+                        <div>
+                            <a href="javascript:;" class="subtract">-</a>
+                            <input type="text" class="num" value="1">
+                            <a href="javascript:;" class="add">+</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" class="box" />
+                    </td>
+                    <td>Iphone 11</td>
+                    <td>5000</td>
+                    <td>
+                        <div>
+                            <a href="javascript:;" class="subtract">-</a>
+                            <input type="text" class="num" value="1">
+                            <a href="javascript:;" class="add">+</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" class="box" />
+                    </td>
+                    <td>Ipad</td>
+                    <td>4000</td>
+                    <td>
+                        <div>
+                            <a href="javascript:;" class="subtract">-</a>
+                            <input type="text" class="num" value="1">
+                            <a href="javascript:;" class="add">+</a>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(function() { //  .change()得到复选框改变后的属性
+            $("#j_cbAll").change(function() {
+                $("#j_tb .box").prop("checked", $("#j_cbAll").prop("checked"))
+            })
+            $("#j_tb .box").click(function() { //  :checked选择器查找被选中的表单元素
+                console.log($("#j_tb .box:checked").length);
+                console.log($("#j_tb .box").length);
+                if ($("#j_tb .box:checked").length === $("#j_tb .box").length) {
+                    $("#j_cbAll").prop("checked", true)
+                } else {
+                    $("#j_cbAll").prop("checked", false)
+                }
+            })
+
+            // 数量加减
+            $(".add").click(function() {
+                let num = $(this).siblings(".num").val()
+                num++;
+                $(this).siblings(".num").val(num)
+            })
+            $(".subtract").click(function() {
+                let num = $(this).siblings(".num").val()
+                if (num == 1) {
+                    return false
+                }
+                num--;
+                $(this).siblings(".num").val(num)
+            })
+        })
+    </script>
+</body>
+
+</html>

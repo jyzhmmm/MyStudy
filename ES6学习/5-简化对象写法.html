@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  ES6允许在大括号里直接写入变量和函数，作为对象的方法
+
+        let name = '王明'
+        let method = function() {
+            console.log('这是我的名字')
+        }
+
+        const obj = {
+            name,
+            method,
+            change() {
+                console.log('ES6对象里可以省略写函数function')
+            }
+        }
+        obj.change()
+        obj.method()
+        console.log(obj)
+    </script>
+</body>
+
+</html>

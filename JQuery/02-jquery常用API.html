@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="nav">11</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <p>浅蓝色</p>
+    <p>11</p>
+    <script>
+        // 1.jquery选择器 $("选择器"),直接写选择器即可
+        $(function() {
+            console.log($(".nav"))
+            console.log($("ul li"))
+
+            // 2.jquery设置样式  jquery对象.css("属性"，"值")
+            $("p").css("background", "skyblue")
+            $("p").css({
+                    color: "red",
+                    width: 50,
+                    height: 50
+                })
+                // 3.隐式迭代就是把匹配的元素内部进行遍历循环，给每一个元素添加css方法
+            $("ul li").css("color", "red")
+
+            //  获取第一个元素
+            $("ul li:first").css("background", "blue")
+                // 获取最后一个元素
+            $("ul li:last").css("background", "yellow")
+                // 获取第n个元素 :eq(index) index索引号从0开始
+            $("ul li:eq(2)").css("background", "skyblue")
+
+            //  获得元素方法 eq(index)
+            $("ul li").eq(1).css("background", "pink")
+                // parent()查找父级，children("")相当于$("ul>li"),最近一级， find()相当于后代选择器
+                // siblings()查找兄弟节点不包含本身  parents()得到所有父级元素 
+        })
+    </script>
+</body>
+
+</html>

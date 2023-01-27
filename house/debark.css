@@ -1,0 +1,50 @@
+#debark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login {
+    text-align: center;
+}
+
+input {
+    margin: 10px 0;
+    border: 1px solid skyblue;
+    outline-style: none;
+    color: #ccc;
+}
+
+button {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button a {
+    color: #000;
+    text-decoration: none;
+}
+
+img {
+    position: absolute;
+    right: 3px;
+    bottom: 38px;
+    width: 10px;
+    height: 10px;
+}
+
+.show {
+    display: none;
+}
+
+#login-hidden,
+#login-show {
+    position: absolute;
+    right: 3px;
+    bottom: 98px;
+}
+
+#login-show {
+    display: none;
+}

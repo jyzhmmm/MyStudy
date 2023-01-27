@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>事件1</button>
+    <button>事件2</button>
+    <a href="http://www.baidu.com">百度</a>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        // (1)里面的事件类型是字符串，一定要加引号 不带on
+        // (2)同一个元素同一个事件可以添加多个侦听器(事件处理程序)
+        const btns = document.querySelectorAll('button');
+        btns[1].addEventListener('click', function() {
+            alert(22);
+        })
+        btns[1].addEventListener('click', function() {
+            alert(23);
+        })
+
+        btns[0].addEventListener('click', fn) //  里面的fn函数不需要加小括号调用
+        function fn() {
+            alert(12344555);
+            btns[0].removeEventListener('click', fn); //  删除事件
+        }
+
+        //事件流分为3个阶段：1.捕获阶段 2.当前目标阶段 3.冒泡阶段  (逐层传递事件，有处理程序则执行)
+
+        //事件对象
+        const a = document.querySelector('a')
+        a.addEventListener('click', function(e) { //  函数括号里不用给实参，系统自动默认对象数据
+            e.preventDefault() //  preventDefault让默认事件不发生
+            e.stopPropagation() //  阻止事件冒泡阶段发生
+        })
+
+
+        //重要知识   事件委托(事件代理) 原理：不要在每个子节点单独设置事件监听器，而是在父节点上设置事件监听器，利用冒泡原理
+        //          影响设置每个子节点       作用： 提高程序性能
+        const ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            e.target.style.backgroundColor = 'skyblue'; //  e.target得到当前触发事件对象
+            console.log(e.pageX) // 鼠标在页面的x,y,坐标
+            console.log(e.pageY)
+        })
+
+        //  鼠标事件 mousemove鼠标移动事件，移动1px触发  mouseenter鼠标经过触发，只触发一次
+        //  键盘事件  keyup 键盘按键松开时触发  keydown 键盘按下时触发  keypress 键盘按下时触发(不识别功能键，ctrl,箭头等)
+        //           keyCode属性可以得到相应键的ASCII码值
+    </script>
+</body>
+
+</html>

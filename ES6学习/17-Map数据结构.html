@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  Map数据结构类似于对象，也是键值对的集合，键的范围不限于字符串，各种类型的值（包括对象）都可以当作键，实现了iterator接口
+        let m = new Map()
+            //添加元素
+        m.set('name', 'wm')
+        m.set('method', function() {
+            console.log('值可以是方法')
+        })
+        const obj = {
+            age: 18
+        }
+        m.set(obj, [1, 2, 3])
+        console.log(m)
+            //长度
+        console.log(m.size)
+            //删除
+        m.delete(name)
+            //获取
+        console.log(m.get(obj))
+            //清空
+            // m.clear()
+
+        //遍历
+        for (let val of m) {
+            console.log(val)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+.consult {
+    width: 1200px;
+    height: 607px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    background-color: #20a5aa;
+}
+
+.consult h1 {
+    margin-top: 90px;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.consult p {
+    margin-top: 5px;
+    color: #fff;
+}
+
+.consult ul {
+    width: 759px;
+    height: 318px;
+    margin: 35px auto;
+}
+
+.consult ul li {
+    float: left;
+    width: 243px;
+    height: 318px;
+    margin-left: 10px;
+    background-color: #fff;
+}
+
+.consult li p {
+    padding-left: 25px;
+    line-height: 50px;
+    text-align: left;
+    font-size: 12px;
+    color: #000;
+}
+
+.consult li span {
+    display: block;
+    padding-left: 25px;
+    text-align: left;
+    font-size: 12px;
+    color: #7c7c7c;
+}
+
+.consult li .date {
+    line-height: 20px;
+}
+
+.consult li button {
+    display: block;
+    width: 50px;
+    height: 15px;
+    margin-top: 10px;
+    margin-left: 25px;
+    text-align: left;
+    font-size: 10px;
+    color: #c9c9c9;
+    border: 1px solid #c9c9c9;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.consult li button:hover {
+    border-color: #f87f25;
+    color: #f87f25;
+}
+
+
+/* 加入的css样式 */
+
+.join {
+    position: relative;
+    width: 1200px;
+    height: 619px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    background-image: url(houseimg/join.png);
+}
+
+.join h3 {
+    margin-top: 130px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #3c3c3c;
+}
+
+.join p {
+    margin-top: 5px;
+    margin-bottom: 220px;
+    color: #606060;
+}
+
+.join span {
+    display: block;
+    margin-bottom: 30px;
+    color: #606060;
+}
+
+.radius,
+.radius1,
+.radius2 {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+}
+
+.radius a,
+.radius1 a,
+.radius2 a {
+    font-size: 12px;
+    color: #fff;
+}
+
+.radius {
+    position: absolute;
+    top: 283px;
+    left: 310px;
+    background-color: #009da2;
+}
+
+.radius1 {
+    position: absolute;
+    top: 251px;
+    left: 566px;
+    background-color: #f56161;
+}
+
+.radius2 {
+    position: absolute;
+    top: 280px;
+    left: 853px;
+    background-color: #7ecdf4;
+}
+
+
+/* footercss样式 */
+
+footer {
+    position: relative;
+    width: 1200px;
+    height: 201px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #333333;
+}
+
+footer ul {
+    position: absolute;
+    padding-top: 36px;
+    transform: translateX(22%);
+}
+
+footer ul li {
+    position: relative;
+    float: left;
+}
+
+#share a img {
+    width: 12px;
+    height: 12px;
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+#share .shareimg {
+    position: absolute;
+    top: 20px;
+    left: 8px;
+    float: left;
+}
+
+footer li img {
+    float: left;
+    width: 33px;
+    height: 33px;
+}
+
+footer li .word {
+    float: left;
+    padding-left: 10px;
+}
+
+footer li p {
+    width: 110px;
+    text-align: left;
+    font-size: 12px;
+    color: #fff;
+}
+
+footer li span {
+    float: left;
+    line-height: 28px;
+    padding-left: 20px;
+    font-size: 30px;
+    font-weight: 300;
+    color: #444444;
+}
+
+.footer-box {
+    position: absolute;
+    top: 70px;
+    width: 1200px;
+    margin-top: 27px;
+    border-top: 1px solid #444444;
+}
+
+.footer-box ol {
+    width: 246px;
+    margin: 15px auto;
+}
+
+.footer-box ol li {
+    float: left;
+}
+
+.footer-box li a {
+    font-size: 12px;
+    color: #fff;
+}
+
+.footer-box li b {
+    padding-right: 10px;
+    font-size: 12px;
+    color: #444444;
+    font-weight: normal;
+}
+
+#end {
+    position: absolute;
+    bottom: 40px;
+    left: 25%;
+}
+
+#end span {
+    padding: 0 12px;
+    font-size: 12px;
+    color: #fff;
+}

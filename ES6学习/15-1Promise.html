@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise基本语法</title>
+</head>
+
+<body>
+    <script>
+        //  实例化创建 Promise对象
+        const p = new Promise(function(resolve, reject) { //  Promise里传两个参数，第一个表示调用成功，第二个表示调用失败
+                setTimeout(function() {
+                    // let data = '数据获取成功'
+                    // resolve(data)
+                    let fail = '数据获取失败'
+                    reject(fail)
+                }, 2000)
+            })
+            // 成功或者失败会调用Promise里的then()方法
+        p.then(function(value) { // 调用成功的话会调用then()中的第一个回调函数,不会在调用第二个回调
+                console.log(value)
+            },
+            function(reason) { // 调用失败则调用then()中的第二个回调函数，不会调用第一个回调
+                console.error(reason)
+            })
+    </script>
+</body>
+
+</html>

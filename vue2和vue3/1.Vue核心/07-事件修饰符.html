@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        * {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .demo {
+            background-color: #333;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        Vue中事件修饰符：
+            1.preven: 阻止默认事件发生(常用);
+            2.stop: 阻止事件冒泡(常用);
+            3.once: 事件只触发一次(常用);
+            4.capture: 使用事件的捕获模式；
+            5.self: 只有event.target是当前操作的元素是才触发事件;
+            6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕;
+    -->
+    <div id="root">
+        <h2>欢迎你，{{name}}</h2>
+        <a href="https://www.baidu.com" @click.prevent="showinfo">点击我去百度</a>
+        <!--.prevent相当于事件e.preventDefault,让默认事件不发生  -->
+        <div class="demo" @click="showinfo">
+            <!--阻止事件冒泡-->
+            <button @click.stop="showinfo">点击显示</button>
+        </div>
+        <!--事件只触发一次-->
+        <button @click.once="showinfo">点击显示</button>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        new Vue({
+            el: '#root',
+            data: {
+                name: '猪猪侠'
+            },
+            methods: {
+                showinfo() {
+                    alert('弹出一只猪')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

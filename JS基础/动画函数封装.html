@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button style="margin-top: 160px;">点击移动</button>
+
+    <script>
+        function animate(obj, target, collback) { // 回调函数，函数作为实参被形参接收
+            clearInterval(obj.timer) // 先清除以前的定时器
+            obj.timer = setInterval(function() { //   设置定时器setInterval
+                    let step = (target - obj.offsetLeft) / 10 //  缓动动画设置间隔步长减少
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step)
+                    if (obj.offsetLeft == target) {
+                        clearInterval(obj.timer); //   停止定时器
+                        if (collback) { //   如果函数存在则执行函数
+                            collback()
+                        }
+                    }
+                    obj.style.left = obj.offsetLeft + step + 'px' //  需要添加定位才可以使用这个
+
+                }, 20) // 间隔毫秒数执行一次
+        }
+        const div = document.querySelector('div')
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', function() {
+            animate(div, 800, function() {
+                div.style.backgroundColor = 'blue';
+            });
+        })
+    </script>
+</body>
+
+</html>

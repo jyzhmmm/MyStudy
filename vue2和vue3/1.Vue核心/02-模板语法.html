@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>指令语法</h1>
+        <!--
+            指令语法用于解析标签(包括：标签属性，标签体内容，绑定事件....).
+            v-bind:href="xxx"  可以简写成 :href="xxx"  xxx也要写js表达式.
+            Vue中有很多指令，且形式都是 v-???? .
+        -->
+        <a v-bind:href="url">点击跳转链接</a>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false //  阻止vue在启动时生成生产提示。
+
+        //创建Vue示例   必须创建才能让Vue工作
+        const vm = new Vue({
+            el: '#root', // el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串。
+            data: { //  data中用于存储数据，数据供el所指定的容器去使用。值暂时先写成对象
+                url: 'http://www.atguigu.com'
+            }
+        })
+        console.log(vm)
+    </script>
+</body>
+
+</html>

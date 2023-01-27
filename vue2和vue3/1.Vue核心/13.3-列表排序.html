@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <input type="text" placeholder="查找输入" v-model="keyword">
+        <ul>
+            <!-- 遍历数组-->
+            <li v-for="(p,index) in filPersons" :key="index">
+                {{p.name}} --- {{p.age}}
+            </li>
+        </ul>
+        <button @click="sortnum = 2">升序</button>
+        <button @click="sortnum = 1">降序</button>
+        <button @click="sortnum = 0">原顺序</button>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+
+    new Vue({
+        el: '#root',
+        data: {
+            keyword: '',
+            sortnum: 0,
+            persons: [{
+                id: '001',
+                name: '李三',
+                age: 19
+            }, {
+                id: '002',
+                name: '李四',
+                age: 17
+            }, {
+                id: '003',
+                name: '毛毛',
+                age: 22
+            }]
+        },
+        computed: {
+            filPersons() {
+                const arr = this.persons.filter((pep) => {
+                    return pep.name.indexOf(this.keyword) !== -1
+                })
+
+                if (this.sortnum) {
+                    arr.sort((a, b) => {
+                        return this.sortnum === 1 ? b.age - a.age : a.age - b.age
+                    })
+                }
+                return arr
+            }
+        }
+    })
+</script>
+
+</html>

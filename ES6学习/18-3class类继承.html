@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // //  ES5构造函数实现继承
+        // function phone(brand, price) {
+        //     this.brand = brand
+        //     this.price = price
+        // }
+
+        // phone.prototype.call = function() {
+        //     console.log('手机可以打电话')
+        // }
+
+        // function son(brand, price, color) {
+        //     phone.call(this, brand, price) //继承父级构造函数属性
+        //     this.color = color
+        // }
+
+        // son.prototype = new phone() // 更改原型指向
+        // son.prototype.constructor = son //  更改构造函数指向
+
+        // son.prototype.play = function() {
+        //     console.log('儿子已经可以跑步了')
+        // }
+        // let apple = new son('苹果', 5999, '白色')
+        // console.log(apple)
+
+
+        //  ES6类实现继承，和ES5基本底层实现一样，类继承使用贴合面向对象编程
+
+        class phone {
+            constructor(brand, price) {
+                this.brand = brand
+                this.price = price
+            }
+
+            call() {
+                console.log('可以打电话')
+            }
+        }
+
+        class Sphone extends phone { //子类继承父类一定要写 extends
+            constructor(brand, price, color) {
+                super(brand, price) // super继承父类属性，类似phone.call(this,brand,price)
+                this.color = color
+            }
+
+            play() {
+                console.log('我是孩子，可以打游戏')
+            }
+            call() {
+                console.log('我是重写的call方法') //  子类重写父类的方法
+            }
+        }
+
+        const huawei = new Sphone('华为', 5888, 'blank')
+        huawei.call()
+        console.log(huawei)
+    </script>
+</body>
+
+</html>

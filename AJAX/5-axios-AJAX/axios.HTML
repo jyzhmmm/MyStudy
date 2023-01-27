@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js"></script>
+</head>
+
+<body>
+    <button>get</button>
+    <button>post</button>
+    <button>AJAx</button>
+
+    <script>
+        const btns = document.getElementsByTagName('button')
+
+        btns[0].onclick = function() {
+            axios.get('http:127.0.0.1:8000/axios-server', {
+                // url参数
+                params: {
+                    id: 100,
+                    bb: 800
+                },
+                //  请求头信息
+                headers: {
+                    name: 'wangming',
+                    age: 18
+                }
+            }).then(value => { // 数据返回和处理
+                console.log(value)
+            })
+        }
+
+        btns[1].onclick = function() {
+            axios.post('http:127.0.0.1:8000/axios-server', {
+                name: 'wangmingming',
+                sex: 'nan'
+            }, {
+                // url参数
+                params: {
+                    id: 188,
+                    bb: 890
+                },
+                //  请求头信息
+                headers: {
+                    name: 'wangming',
+                    age: 19
+                }
+            }).then(value => {
+                console.log(value)
+            })
+        }
+
+        btns[2].onclick = function() {
+            axios({
+                // 请求类型
+                method: 'POST',
+
+                url: 'http:127.0.0.1:8000/axios-server',
+                // url参数
+                params: {
+                    a: 888,
+                    b: 688
+                },
+                headers: {
+                    name: 'wm',
+                    age: 18
+                },
+                data: {
+                    sex: '男'
+                }
+            }).then(response => {
+                console.log(response)
+            })
+        }
+    </script>
+</body>
+
+</html>

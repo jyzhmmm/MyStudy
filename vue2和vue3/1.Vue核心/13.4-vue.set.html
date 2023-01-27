@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <ul>
+            <!-- 遍历数组-->
+            <li v-for="(p,index) in persons" :key="index">
+                {{p.name}} --- {{p.age}}
+            </li>
+        </ul>
+        <h2 v-if="student.sex">性别：{{student.sex}}</h2>
+        <button @click="addsex">添加属性</button>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    new Vue({
+        el: '#root',
+        data: {
+            persons: [{
+                id: '001',
+                name: '张三',
+                age: 19
+            }, {
+                id: '002',
+                name: '李四',
+                age: 17
+            }, {
+                id: '003',
+                name: '毛毛',
+                age: 22
+            }],
+            student: {
+                n: 1
+            }
+        },
+        methods: {
+            addsex() {
+                Vue.set(this.student, 'sex', '男')
+            }
+        },
+    })
+</script>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <!--
+        v-for指令
+             1.用于展示列表数据
+             2.语法： v-for="(item,index) in xxx" :key="yyy"
+             3.可遍历：数组，对象，字符串
+    -->
+    <div id="root">
+        <ul>
+            <!-- 遍历数组-->
+            <li v-for="(p,index) in persons" :key="index">
+                {{p.name}} --- {{p.age}}
+            </li>
+        </ul>
+
+        <ul>
+            <!--遍历对象-->
+            <li v-for="(value,k) in animal" :key="k">
+                {{k}} --- {{value}}
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    new Vue({
+        el: '#root',
+        data: {
+            persons: [{
+                id: '001',
+                name: '张三',
+                age: 19
+            }, {
+                id: '002',
+                name: '李四',
+                age: 17
+            }, {
+                id: '003',
+                name: '毛毛',
+                age: 22
+            }],
+            animal: {
+                name: '蓝猫',
+                color: '浅蓝色',
+                price: '2500'
+            }
+        }
+    })
+</script>
+
+</html>

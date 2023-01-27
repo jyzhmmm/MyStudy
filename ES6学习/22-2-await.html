@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p = new Promise((resolve, reject) => {
+            resolve('成功了的')
+                // reject('失败了啊')
+        })
+
+        // await 一定要放在 async 函数中
+        async function fm() {
+            let result = await p // await 右侧表达式一般是promise对象，await 返回的是promise成功的值
+            console.log(result)
+
+            // try { //  await 的promise失败了就会抛出异常，需要通过try...catch 捕获
+            //     let result = await p
+            // } catch (e) {
+            //     console.log(e)
+            // }
+        }
+        fm()
+    </script>
+</body>
+
+</html>

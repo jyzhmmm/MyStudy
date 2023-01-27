@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="furniture.css">
+    <link rel="stylesheet" href="carouselhome.css">
+    <link rel="stylesheet" href="consult.css">
+    <script src="home.js"></script>
+    <script src="../JQuery/jquery.min.js"></script>
+    <script src="mySlider.js"></script>
+    <script>
+        $(function() {
+            new Slider({
+                oSliderWrap: $('.J_sliderWrap'),
+                sliderItems: $('.item'),
+                yuan: $('.yuan'),
+                yuanItems: $('.yuan-item'),
+                btnGroupLeft: $('.btn-left'),
+                btnGroupRight: $('.btn-right')
+            }).init();
+        })
+    </script>
+</head>
+
+<body>
+    <header>
+        <span class="nitori">NITORI</span>
+        <div class="head">
+            <ul>
+                <li><a href="#">stroe top</a></li>
+                <li><a href="#">Nitorl 网店</a></li>
+                <li><a href="#">加入我们</a></li>
+                <li><a href="#">店铺查询</a></li>
+                <li><a href="#">公司采购</a></li>
+                <li><a href="#">品牌沿革</a></li>
+                <li><a href="#">微信会员</a></li>
+            </ul>
+        </div>
+        <div class="navbox">
+            <ul>
+                <li id="debark-show">
+                    <a href="#">中文</a>
+                    <div id="debark">
+                        <a href="debark.html">登录</a>
+                        <a href="login.html">注册</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#"><img src="houseimg/search.png" alt="搜索" style="width: 16px;height: 16px;"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="houseimg/tianmao.png" alt="天猫形象" style="width: 16px;height: 16px;"></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="go-top">
+        回到顶部
+    </div>
+
+    <div class="slider-wrap  J_sliderWrap">
+        <div class="slider">
+            <ul class="slider-list">
+                <li class="item cur" style="display: none;">
+                    <a href="" class="item-lk"><img class="item-img" src="houseimg/bedroom.png" alt=""></a>
+                </li>
+                <li class="item cur" style="display: none;">
+                    <a href="" class="item-lk"><img class="item-img" src="houseimg/bedroom1.png" alt=""></a>
+                </li>
+                <li class="item" style="display: list-item;">
+                    <a href="" class="item-lk"><img class="item-img" src="houseimg/bedroom2.png" alt=""></a>
+                </li>
+                <li class="item" style="display: list-item;">
+                    <a href="" class="item-lk"><img class="item-img" src="houseimg/bedroom3.png" alt=""></a>
+                </li>
+            </ul>
+        </div>
+        <div class="pic">
+            <div class="yuan">
+                <i class="yuan-item"></i>
+                <i class="yuan-item cur"></i>
+                <i class="yuan-item"></i>
+                <i class="yuan-item"></i>
+            </div>
+        </div>
+
+        <!-- <div class="btn-group">
+            <div class="btn-left">&lt;</div>
+            <div class="btn-right">&gt;</div>
+        </div> -->
+        <div class="suspend">
+            <h1>BRING WARM</h1>
+            <P>“HOME”</P>
+            <span>把温暖带“回家”</span>
+        </div>
+    </div>
+
+    <section>
+        <h1>Enterprise idea</h1>
+        <p>企业理念</p>
+        <div class="introduce">
+            <span>NITORI集团是由以家具/假假饰品零售为主NITORI控股公司，在印度尼西亚和越南进行家具生产制造的NITORI Furni ture Co.，Ltd，</span>
+            <span>以日本国内物流业务为主的Rome Logistice Co.,Ltd，以集团整体宣传/广告业务为主的NITORI Publie，以及海外商品采购业务及</span>
+            <span>海外零售业务的各海外子公司所组成的。</span>
+        </div>
+        <button>MORE</button>
+        <ul>
+            <li class="backgroundc">
+                <img src="houseimg/introduce1.png" />
+                <p>395家店铺</p>
+                <span>国内外共395家店铺，使NITORI</span>
+                <span>的店铺离你的生活更近</span>
+            </li>
+            <li>
+                <img src="houseimg/introduce2.png" />
+                <p>我们是谁？</p>
+                <span>NITORI集团是由以家具/家饰品</span>
+                <span>零售为主的NITORI控股公司</span>
+            </li>
+            <li>
+                <img src="houseimg/introduce3.png" />
+                <p>我们在做什么？</p>
+                <span>以日本国内特流业务为主的Home Loglsdcs</span>
+                <span>Loglscs Co.Lid，以集团整体宣传/广告业务为主</span>
+            </li>
+        </ul>
+    </section>
+
+    <article>
+        <div class="suspends">
+            <p>从这里去寻找您附近的店铺!</p>
+            <button class="btn">立即去探索 ></button>
+            <ul>
+                <li><a href="javascript:;">武汉</a><span>|</span></li>
+                <li><a href="javascript:;">上海</a><span>|</span></li>
+                <li><a href="javascript:;">苏州</a><span>|</span></li>
+                <li><a href="javascript:;">宁波</a><span>|</span></li>
+                <li><a href="javascript:;">杭州</a></li>
+            </ul>
+        </div>
+    </article>
+
+    <div class="product">
+        <div class="catalog">
+            <span><a>推荐产品</a></span>
+            <p>|</p>
+            <span><a>公司采购</a></span>
+        </div>
+
+        <ul class="product_ul">
+            <li>
+                <img src="houseimg/product1.png" alt="">
+                <p>PP收纳篮</p>
+                <span>拉开即可使用 高低可调 强大收纳</span>
+                <!-- <div class="price">
+                    <p>折叠晒衣架</p>
+                    <span>￥ 29.90</span>
+                    <button class="btn-search">查看详情</button>
+                    <button class="btn-store">天猫旗舰店</button>
+                </div> -->
+            </li>
+            <li>
+                <img src="houseimg/product2.png" alt="">
+                <p>折叠晒衣架</p>
+                <span>拉开即可使用 高低可调 强大收纳</span>
+            </li>
+            <div class="productbox">
+                <div class="productsmall">
+                    <h1>珐琅锅卓</h1>
+                    <p>珐琅琥珀 日本品质 安全无忧 具有良好耐腐蚀</p>
+                    <p>星的通用钢肿，导热性能奥氏体（304）号，耐疲劳。</p>
+                    <button>vlow moro</button>
+                </div>
+                <img src="houseimg/product3.png" alt="">
+            </div>
+            <li>
+                <img src="houseimg/product4.png" alt="">
+                <p>PP收纳篮</p>
+                <span>拉开即可使用 高低可调 强大收纳</span>
+            </li>
+            <li>
+                <img src="houseimg/product5.png" alt="">
+                <p>PP收纳篮</p>
+                <span>拉开即可使用 高低可调 强大收纳</span>
+            </li>
+            <li>
+                <img src="houseimg/product6.png" alt="">
+                <p>PP收纳篮</p>
+                <span>拉开即可使用 高低可调 强大收纳</span>
+            </li>
+            <li>
+                <img src="houseimg/product7.png" alt="">
+                <p>PP收纳篮</p>
+                <span>拉开即可使用 高低可调 强大收纳</span>
+            </li>
+        </ul>
+
+        <div class="page">
+            <button class="page-left"><img src="houseimg/left.png" alt=""></button>
+            <button class="pages"><img src="houseimg/spot.png" alt=""></button>
+            <button class="page-right"><img src="houseimg/right.png" alt=""></button>
+        </div>
+    </div>
+
+    <div class="consult">
+        <h1>News center</h1>
+        <p>新闻资讯</p>
+        <ul>
+            <li>
+                <img src="houseimg/consult1.png" alt="">
+                <p>NITORI缤纷居家环境</p>
+                <span class="date">-2021/01/19</span>
+                <span>上海点硕网站设计公司与中兴政企专题</span>
+                <button>MORE></button>
+            </li>
+            <li>
+                <img src="houseimg/consult2.png" alt="">
+                <p>NITORI缤纷居家环境</p>
+                <span class="date">-2021/01/19</span>
+                <span>上海点硕网站设计公司与中兴政企专</span>
+                <span>题网站建设上海点硕网站设计公司与</span>
+                <span>中兴政企专题网站建设</span>
+                <button>MORE></button>
+            </li>
+            <li>
+                <img src="houseimg/consult3.png" alt="">
+                <p>NITORI缤纷居家环境</p>
+                <span class="date">-2021/01/19</span>
+                <span>上海点硕网站设计公司与中兴政企专题</span>
+                <button>MORE></button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="join">
+        <h3>Join us</h3>
+        <p>加入我们</p>
+        <div class="radius"><a href="javascript:;">工业设计师</a></div>
+        <div class="radius1"><a href="javascript:;">销售经理</a></div>
+        <div class="radius2"><a href="javascript:;">市场部经理</a></div>
+        <span>加入NITORI 在奋斗中成就自己，期待更好的你！</span>
+        <div class="page">
+            <button class="page-left"><img src="houseimg/left.png" alt=""></button>
+            <button class="pages"><img src="houseimg/spot.png" alt=""></button>
+            <button class="page-right"><img src="houseimg/right.png" alt=""></button>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li>
+                <img src="houseimg/footertel.png" alt="">
+                <div class="word">
+                    <p>TEL</p>
+                    <p>+86 11 1234</p>
+                </div>
+                <span>|</span>
+            </li>
+            <li id="share">
+                <div class="word">
+                    <p>SHARE</p>
+                </div>
+                <div class="shareimg">
+                    <a href="javascript:;"><img src="houseimg/share1.png" alt=""></a>
+                    <a href="javascript:;"><img src="houseimg/share2.png" alt=""></a>
+                    <a href="javascript:;"><img src="houseimg/share3.png" alt=""></a>
+                    <a href="javascript:;"><img src="houseimg/share4.png" alt=""></a>
+                    <a href="javascript:;"><img src="houseimg/share5.png" alt=""></a>
+                </div>
+                <span>|</span>
+            </li>
+            <li>
+                <div class="word">
+                    <p>NITOR</p>
+                    <p>会员招募信息</p>
+                </div>
+                <img src="houseimg/nitor.png" alt="">
+                <span>|</span>
+            </li>
+            <li>
+                <div class="word">
+                    <p>NITOR</p>
+                    <p>天猫旗舰店</p>
+                </div>
+                <img src="houseimg/bag.png" alt="">
+                <span>|</span>
+            </li>
+            <li>
+                <div class="word">
+                    <p>扫一扫</p>
+                    <p>关注微信公众号</p>
+                </div>
+                <img src="houseimg/code.png" alt="">
+            </li>
+        </ul>
+
+        <div class="footer-box">
+            <ol>
+                <li>
+                    <a href="">联系我们</a>
+                    <b>|</b>
+                </li>
+                <li>
+                    <a href="">新闻中心</a>
+                    <b>|</b>
+                </li>
+                <li>
+                    <a href="">留言建议</a>
+                    <b>|</b>
+                </li>
+                <li>
+                    <a href="">隐私政策</a>
+                </li>
+            </ol>
+        </div>
+        <div id="end">
+            <span>Copynight©2005-2010 NITOR1 Co.,Ltd</span>
+            <span>鲁ICP备3434656578号</span>
+            <span>Web deslgned by ldea-soucn.nel</span>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var b = 10;
+        // (function() {
+        //     console.log(b);
+        //     b = 5;
+
+        //     console.log(window.b);
+        //     b = 20
+        //     var b = 20
+        //     console.log(b)
+        // })();
+
+        //  //  闭包应用
+        // var num = parseInt(prompt("输入公里数"));
+        // var car = (function() {
+        //     var total = 13;
+        //     return {
+        //         price: function(num) {
+        //             if (num > 3) {
+        //                 total += (num - 3) * 5;
+        //             } else {
+        //                 total = 13;
+        //             }
+        //             return total;
+        //         },
+        //         du: function(flag) {
+        //             return flag ? total + 10 : total;
+        //         }
+        //     }
+        // })();
+        // console.log(car.price(num));
+        // console.log(car.du(true));
+
+        //  递归函数 函数内自己调用自己，相当于循环，必须加判断条件return退出
+        // var n = parseInt(prompt("输入一个递归数"))
+
+        // function fn(n) {
+        //     if (n == 1) {
+        //         return 1
+        //     }
+        //     return n * fn(n - 1)
+        // }
+        // console.log(fn(n))
+
+        //  递归函数求兔子序列 1，1，2，3，5，8，13，21
+        // function fb(n) {
+        //     if (n === 1 || n === 2) {
+        //         return 1;
+        //     }
+        //     return fb(n - 1) + fb(n - 2);
+        // }
+        // console.log(fb(8));
+
+        // 深拷贝数据
+        let obj = {
+            age: 1,
+            name: 'lzc',
+            bie: {
+                like: 'book',
+                fate: 'foot'
+            },
+            arr: ['pink', 'skyblue']
+        }
+        let o = {};
+
+        function cope(newobj, oldobj) {
+            for (let k in oldobj) {
+                let item = oldobj[k];
+                if (item instanceof Array) {
+                    newobj[k] = [];
+                    cope(newobj[k], item)
+                } else if (item instanceof Object) {
+                    newobj[k] = {};
+                    cope(newobj[k], item)
+                } else {
+                    newobj[k] = item
+                }
+            }
+        }
+        cope(o, obj);
+        console.log(o)
+    </script>
+</body>
+
+</html>

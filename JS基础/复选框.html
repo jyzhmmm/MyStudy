@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.wrap{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		#j_tb td{
+			padding-left: 10px;
+		}
+		#j_tb tr:hover{
+			background-color: #ddd;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div class="wrap">
+			<table width="300px" border="1px" bordercolor="#ccc" cellspacing="0">
+				<thead style="background-color: lightskyblue;">
+					<tr>
+						<th>
+							<input type="checkbox" id="j_cbAll" />
+						</th>
+						<th>商品</th>
+						<th>价格</th>
+					</tr>
+				</thead>
+				<tbody id="j_tb">
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>Iphone 13</td>
+						<td>6500</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>Iphone 12</td>
+						<td>6000</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>Iphone 11</td>
+						<td>5000</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>Ipad</td>
+						<td>4000</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		<script>
+		var j_cbAll = document.getElementById('j_cbAll');
+		var tbn = document.getElementById('j_tb').getElementsByTagName('input');
+		j_cbAll.onclick = function(){
+			for(var i = 0; i < tbn.length;i++){
+				//  this.checked可以得到当前复选框选中状态，true选中，false就是未选择
+				tbn[i].checked = this.checked;
+			}
+		}
+		//  下面复选框全选中,上面则变为选中
+		for(var i = 0; i < tbn.length;i++){
+			tbn[i].onclick = function(){
+				var flag = true; // 控制全选按钮是否给选中
+				for(var i = 0; i < tbn.length;i++){  //  i变量,位于的作用域不一样，所以不影响
+					if(!tbn[i].checked){    //  所有复选框都给选中则不执行if语句
+						flag = false;
+						break;
+					}	
+				}
+				j_cbAll.checked = flag;
+			}
+		}
+		</script>
+	</body>
+</html>

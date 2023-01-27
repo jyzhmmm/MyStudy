@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        //  ...  扩展运算符能将数组转换为逗号分隔的参数序列
+        const arr = ['wm', 'mn', 'er']
+        console.log(...arr)
+
+        function fn() {
+            console.log(arguments)
+        }
+        fn(...arr)
+
+        const arr1 = ['wm', 'l4', 'w5']
+        const connect = [...arr, ...arr1]
+        console.log(connect)
+
+        // 将伪数组转为真正的数组
+        const divs = document.querySelectorAll('div')
+        const divAll = [...divs]
+        divAll.forEach(value => value.style.width = '100px')
+
+        const obj = {
+            name: 'wmm',
+            age: 18
+        }
+        const obj1 = {
+            name: 'lh'
+        }
+        const obj2 = {...obj, // 扩展运算符用在对象身上，合并对象的后面对象属性会替代前面对象相同的属性
+            ...obj1
+        }
+        console.log(obj2)
+    </script>
+</body>
+
+</html>

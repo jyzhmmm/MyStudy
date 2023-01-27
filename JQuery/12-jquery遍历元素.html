@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <ul>
+        <li>start</li>
+    </ul>
+    <p>start</p>
+    <script>
+        $(function() {
+            let arr = ["skyblue", "red", "yellow"]
+                // 同一类元素做不同操作，用遍历元素
+            $("div").each(function(index, domEle) { //  回调函数第一个参数是索引号，第二个是DOM元素对象
+                    $(domEle).css("backgroundColor", arr[index])
+                })
+                // 语法2 多用于遍历数组，对象
+            $.each(arr, function(i, ele) {
+                console.log(i);
+                console.log(ele);
+            })
+
+            //  创建元素
+            let li = $("<li>放到后面</li>")
+            let lis = $("<li>放到前面</li>")
+                // 添加元素
+                // (1)内部添加
+            $("ul").append(li);
+            $("ul").prepend(lis);
+            // (2)外部添加
+            let p = $("<p>后面</p>")
+            let ps = $("<p>前面</p>")
+            $("p").after(p);
+            $("p").before(ps)
+                // 删除元素
+                // .remove() 删除元素本身所有，包括里面子节点
+                //  .empty()  删除匹配元素的所有子节点
+                //  .html()  删除匹配元素的所有子节点
+        })
+    </script>
+</body>
+
+</html>

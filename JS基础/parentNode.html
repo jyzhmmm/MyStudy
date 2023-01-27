@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <span class="er">x</span>
+    </div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        // 获取属性值：element.getAttribute('属性')
+        // 设置元素属性值： element.属性='值'     例如:div.className = 'box'
+        // element.setAttribute('属性'，'值')  主要针对自定义属性   例如：div.setAttribute('index'，2)
+        //  移除属性 element.reemoveAttribute(属性)
+
+        //  获取父节点 parentNode 
+        var son = document.querySelector('.er');
+        var box = son.parentNode; //  得到box元素,得到的是最近的父级节点,找不到父节点返回Null
+        console.log(box)
+        var ul = document.querySelector('ul')
+        var lis = ul.childNodes; //  子节点 childNodes 得到所有子节点包含元素节点，文本节点等
+        console.log(lis)
+        var liss = ul.children // 该格式只得到子元素节点
+        console.log(liss)
+        var first = ul.firstElementChild // 得到子元素第一个节点
+        console.log(first)
+
+        //  node.nextElementsibling得到下一个兄弟节点, node.previousElementsibling得到上一个兄弟节点，找不到返回Null
+
+        // creatElement创建元素，appendChild在文本最后一个元素插入，insertBefore(创建元素,插入位置)在文本设置元素插入
+
+        // node.removeChild(child)删除元素
+
+        //  node.clonechild()克隆节点，括号为空只复制标签不复制内容,括号里为ture则是深拷贝，会复制内容
+    </script>
+</body>
+
+</html>

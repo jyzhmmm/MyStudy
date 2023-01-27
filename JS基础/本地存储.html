@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button class="set">存储</button>
+    <button class="get">获取</button>
+    <button class="remove">删除</button>
+    <button class="clean">清除</button>
+    <script>
+        const inp = document.querySelector('input')
+        const set = document.querySelector('.set')
+        const get = document.querySelector('.get')
+        const remove = document.querySelector('.remove')
+        const clean = document.querySelector('.clean')
+            //     // 本地存储sessionStorage，生命周期为关闭浏览器窗口，键值对形式存储，同一个页面数据可以共享
+            // set.addEventListener('click', function() {
+            //     var val = inp.value;
+            //     sessionStorage.setItem('uname', val)
+            // })
+            // get.addEventListener('click', function() {
+            //     console.log(sessionStorage.getItem('uname'));
+            // })
+            // remove.addEventListener('click', function() {
+            //     sessionStorage.removeItem('uname');
+            // })
+            // clean.addEventListener('click', function() {
+            //     sessionStorage.clear(); // 删除所有数据
+            // })
+
+        //  localStorage生命周期永久生效，除非手动删除，否则关闭页面也会存在，可以多窗口(页面)共享，键值对形式存储
+        //  本地存储只能存储字符串的数据格式 把数组对象[{},{}]转换为字符串格式JSON.stringify()
+        //  获取数据，将字符串转换为对象格式JSON.parse()
+        set.addEventListener('click', function() {
+            var val = inp.value;
+            localStorage.setItem('uname', val)
+        })
+        get.addEventListener('click', function() {
+            console.log(localStorage.getItem('uname'));
+        })
+        remove.addEventListener('click', function() {
+            localStorage.removeItem('uname');
+        })
+        clean.addEventListener('click', function() {
+            localStorage.clear(); // 删除所有数据
+        })
+    </script>
+</body>
+
+</html>

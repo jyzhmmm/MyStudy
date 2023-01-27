@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //set集合成员的值都是唯一的，实现了iterator结口
+        let s = new Set([1, 2, 3, 4, 3, 4]) // 会自动帮数组去重，传入参数为可迭代数据，一般为数组
+        console.log(s.size)
+        console.log(s.has(3))
+
+        // 应用
+        const arr = [1, 2, 3, 4, 5, 6, 7, 3, 5, 6]
+            //数组去重
+        let result = [...new Set(arr)]
+        console.log(result)
+            //交集
+        const arr1 = [, 5, 6, 7, 8, 9, 8, 9]
+        let result1 = result.filter(value => new Set(arr1).has(value))
+        console.log(result1)
+    </script>
+</body>
+
+</html>

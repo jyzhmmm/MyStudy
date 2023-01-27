@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 利用RegExp对象创建正则表达式
+        let regexp = new RegExp(/  /);
+
+        //  利用字面量创建正则表达式
+        let rg = /345/;
+
+        // test()正则对象方法，用于检测字符串是否符合规则，返回true,false
+        console.log(rg.test(34))
+
+        // 边界符 ^ 匹配行首的文本(以谁开始)  $ 匹配行尾的文本(以谁结束)
+        // 字符类 [] 只要包含有其中一个字符就可以匹配 返回true ;   -   表示范围
+        let rg1 = /[abc]/;
+        console.log(rg1.test('aadg'))
+        console.log(rg1.test('brdg'))
+        console.log(rg1.test('cdg'))
+            // 三选一，只有是a|b|c才返回true
+        let rg2 = /^[abc]$/;
+        console.log(rg2.test('aadg'))
+        console.log(rg2.test('b'))
+        console.log(rg2.test('acdg'))
+        console.log('------------------------')
+            //  26个英文字母之一才返回true
+        let rg3 = /^[a-zA-Z]$/
+        console.log(rg3.test('aadg'))
+        console.log(rg3.test('g'))
+        console.log(rg3.test('G'))
+            //  如果中括号里面有^，表示取反的意思 不要和边界符^混淆了
+        let rg4 = /^[^a-zA-Z]$/
+        console.log(rg4.test('g'))
+        console.log(rg4.test('?'))
+        console.log('------------------------')
+            // 量词符 用来设定某个模式出现的次数
+            //  *  相当于 >=0 可以出现0次或者很多次
+        let reg = /^a*$/;
+        console.log(reg.test('a'))
+        console.log(reg.test('aaaa'))
+            //   +  相当于 >=1 可以出现1次或者很多次
+
+        //  ?  相当于 1 || 0 可以出现1次或者0次
+        let reg1 = /^a?$/;
+        console.log(reg1.test('a'))
+        console.log(reg1.test(''))
+        console.log(reg1.test('aaaa'))
+        console.log('------------------------')
+            // 较多使用  {3}就是重复3次   {3,}就是大于等于3次    {3，16}就是大于等于3 并且 小于等于16
+        let reg2 = /^a{4,}$/;
+        console.log(reg2.test('a'))
+        console.log(reg2.test(''))
+        console.log(reg2.test('aaaa'))
+
+        //  预定义类，简写表达式
+        //  \d 匹配0-9数字，相当于[0-9], \D相当于取反
+        //  \w 匹配任意字母数字和下划线，  \W 相当于取反
+        //  \s 匹配空格(换行符，制表符，空格符等)    \S相当于取反
+    </script>
+</body>
+
+</html>

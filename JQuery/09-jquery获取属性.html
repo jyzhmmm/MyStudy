@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" name="" id="">
+    <div index="1"></div>
+    <div class="amend"></div>
+    <script>
+        $(function() {
+                // 设置或者获取元素属性值 prop()
+                console.log($("input").prop("type"));
+                // 元素自定义属性获取或者修改 attr()
+                console.log($("div").attr("index"));
+                $(".amend").attr("index", 5)
+                console.log($(".amend").attr("index"));
+            })
+            //  数据缓存data() 可以在指定元素上存取数据，页面刷新，数据移除
+            //  存数据data("name","value")   获取数据data("name")
+    </script>
+</body>
+
+</html>

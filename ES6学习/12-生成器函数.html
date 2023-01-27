@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生成器函数其实就是一个特殊的函数
+        // 异步编程  纯回调函数 node ajax ......
+        // 函数代码分隔符
+        function* gen() { // *一定要写在中间，才是生成器 
+            yield '一只猪' // yield语句 可以写表达式或者字面量
+            yield '两只猪'
+            yield '三只猪'
+        }
+        let iterator = gen()
+        console.log(iterator.next()) // 调用一次就返回函数里的一个结果，按顺序返回,只会执行yield语句之间的代码块
+        console.log(iterator.next())
+        console.log(iterator.next())
+        console.log(iterator.next())
+    </script>
+</body>
+
+</html>

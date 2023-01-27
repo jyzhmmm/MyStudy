@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建和存放元素</title>
+    <style>
+        textarea {
+            border-color: skyblue;
+            resize: none;
+        }
+        
+        li {
+            width: 300px;
+            margin-top: 10px;
+            background-color: skyblue;
+        }
+        
+        li a {
+            float: right;
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        const text = document.querySelector('textarea');
+        const lis = document.querySelector('button');
+        const ul = document.querySelector('ul');
+
+        lis.onclick = function() {
+            if (text.value == '') {
+                alert('没有输入文字哦')
+                return false;
+            } else {
+                const li = document.createElement('li')
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>"; //  javascript:; 写上这个不会跳转链接
+                ul.insertBefore(li, ul.children[0]) //  在文本第一个元素前插入元素， appendchild在文本最后一个元素插入
+                text.value = ''
+                    // 删除元素 删除当前链接
+                const sa = document.querySelectorAll('a');
+                for (let i = 0; i < sa.length; i++) {
+                    sa[i].onclick = function() {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

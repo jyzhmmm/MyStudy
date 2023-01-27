@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  输入一个search字符串，输出一个object，同名参数则是成为数组
+        var search = "name=sa&age=18&address=qwe&address=poi&kaka"
+
+        function parseQuery(str) {
+            const obj = {};
+            let temp = str.split('&')
+            temp.forEach(val => {
+                const newarr = val.split('=')
+                if (obj[newarr[0]]) {
+                    let temp = obj[newarr[0]]
+                    obj[newarr[0]] = [temp]
+                    obj[newarr[0]].push(newarr[1])
+                } else {
+                    obj[newarr[0]] = newarr[1]
+                }
+            })
+            return obj
+        }
+        console.log(parseQuery(search))
+    </script>
+</body>
+
+</html>

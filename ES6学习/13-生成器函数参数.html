@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* gen(arg) {
+            console.log(arg)
+            let one = yield '一只猪'
+            console.log(one)
+            let two = yield '两只猪'
+            console.log(two)
+            let three = yield '三只猪'
+            console.log(three)
+        }
+        let iterator = gen('qwe')
+        console.log(iterator.next())
+        console.log(iterator.next('222')) // next里面传参数，参数将作为上一条yield语句的返回值,  调用next()只会执行yield语句之间的代码块
+        console.log(iterator.next('333'))
+        console.log(iterator.next('444'))
+    </script>
+</body>
+
+</html>

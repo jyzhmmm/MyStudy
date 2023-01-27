@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6引入了 rest 参数，用于获取函数的实参，用来代替arguments
+        // rest参数   一定要加三个点，后面加变量名，就是rest参数
+        function data(...args) {
+            console.log(args)
+        }
+        data('wm', 'mn', 'yu')
+
+        // rest 参数必须要放到最后， 得到的结果是数组类型，可以使用数组的API方法
+        function fn(a, b, ...args) {
+            console.log(a, b, args)
+        }
+        fn(1, 2, 3, 4)
+    </script>
+</body>
+
+</html>

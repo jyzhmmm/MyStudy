@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <!--
+        常用的生命周期钩子：
+            1.mounted:发送ajax请求，启动定时器，绑定自定义事件，订阅消息等【初始化操作】
+            2.beforeDestroy: 清除定时器，解绑自定义事件，取消订阅消息等【守卫工作】
+        
+        关于销毁Vue实例
+            1.销毁后借助Vue开发者工具看不到任何信息。
+            2. 销毁后自定义事件会失效，但原生DOM事件依然有效。
+            3. 一般不会再beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了
+    -->
+    <!--
+        生命周期：
+          1.又名：生命周期回调函数，生命周期函数，生命周期钩子。
+          2. 是什么： Vue在关键时刻帮我们调用的一些特殊名称的函数。
+          3. 生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。
+          4.生命周期函数中的this指向的是vm 或 组件实例对象。
+    -->
+    <div id="root">
+        <h2 :style={opacity}>Vue学习</h2>
+        <h2 v-text="n"></h2>
+        <button @click="change">n加一</button>
+        <button @click="bye">摧毁vm</button>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#root',
+        data: {
+            opacity: 1,
+            n: 1
+        },
+        methods: {
+            change() {
+                this.n++
+            },
+            bye() {
+                this.$destroy()
+            }
+        },
+        //  执行下面回调函数之前初始化：生命周期，事件，但数据代理未开始
+        beforeCreate() {
+            console.log('beforeCreat')
+        },
+        //  执行完 beforeCreate 初始化：数据监测，数据代理，可以访问到vm中的数据
+        created() {
+            console.log('created')
+        },
+        //  执行完created后，Vue解析模板，生成虚拟DOM，页面不能显示解析好的内容
+        beforeMount() {
+            console.log('beforeMount')
+        },
+        //  执行完beforeMount 内存中的虚拟DOM转化为真实DOM插入页面
+        // Vue完成模板解析并把初始的真实DOM元素放入页面后(挂载完毕)调用mounted
+        mounted() {
+            console.log('mount')
+                // setInterval(() => {
+                //     this.opacity -= 0.02
+                //     if (this.opacity <= 0) this.opacity = 1
+                // }, 20)
+        },
+        //  执行完beforeUpdate，数据是新的，页面是旧的，还没有渲染页面
+        beforeUpdate() {
+            console.log('beforeUpdate')
+        },
+        //  执行完updated，页面与数据保持同步
+        updated() {
+            console.log('update')
+        },
+        //  执行完beforeDestroy， data，methods，指令等可用,但是页面不会更新,一般在此：
+        //  关闭定时器，取消订阅消息，解绑自定义事件等收尾工作
+        beforeDestroy() {
+            console.log('beforeDestory')
+        },
+        //  摧毁了vm，88了
+        destroyed() {
+            console.log('destroyed')
+        },
+    })
+</script>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--引入模块化js文件-->
+    <!-- <script type="module">
+        import * as mz from "./20-模块化.js"; console.log(mz); mz.default.play() // 通用引入方式
+    </script> -->
+
+    <!-- <script type="module">
+        import {name,play} from "./20-模块化.js" // 解构赋值形式分别暴露引入
+    </script> -->
+
+    <!-- <script type="module">
+        import {name as cm,play} from "./20-模块化.js" // 解构赋值统一暴露引入
+    </script> -->
+
+    <!-- <script type="module">
+        import {default as mz} from "./20-模块化.js" ; console.log(mz)// 解构赋值形式默认暴露引入
+    </script> -->
+
+    <script type="module">
+        import mz from "./20-模块化.js" ; console.log(mz) // 引入简便形式，只针对默认暴露才有用
+    </script>
+</body>
+
+</html>

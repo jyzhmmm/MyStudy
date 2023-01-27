@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        
+        .border {
+            border: 1px solid red;
+        }
+        
+        .border1 {
+            border: 1px solid yellow;
+        }
+        
+        .border2 {
+            border: 1px solid black;
+        }
+        
+        .font {
+            color: aqua;
+        }
+        
+        .font1 {
+            font-size: 20px;
+        }
+        
+        .foot2 {
+            font-weight: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 绑定class样式，字符串写法，适用于：样式的类名不确定，需要动态指定-->
+        <div class="demo" :class="change" @click="changebod">{{name}}</div><br><br/>
+        <!-- 绑定class样式，数组写法，适用于：要绑定的样式个数不确定，名字也不确定-->
+        <div class="demo" :class="font">{{name}}</div><br><br/>
+        <!-- 绑定class样式，对象写法，适用于：要绑定的样式个数确定，名字也确定,但要动态决定用不用-->
+        <div class="demo" :class="classObj">{{name}}</div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    new Vue({
+        el: '#root',
+        data: {
+            name: '毛毛',
+            change: 'border',
+            font: ['font', 'font1', 'font2'],
+            classObj: {
+                font: false,
+                font1: false
+            }
+        },
+        methods: {
+            changebod() {
+                const arr = ['border', 'border1', 'border2']
+                const index = Math.floor(Math.random() * 3)
+                this.change = arr[index]
+            }
+        },
+    })
+</script>
+
+</html>

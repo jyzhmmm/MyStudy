@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cleanfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+header {
+    width: 1200px;
+    height: 44px;
+    padding-left: 15px;
+    line-height: 44px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #3ba2a5;
+}
+
+.nitori {
+    float: left;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.head {
+    float: left;
+    padding-left: 250px;
+    padding-right: 95px;
+}
+
+.head li {
+    float: left;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 0 17px;
+}
+
+.head li:hover {
+    background-color: #ff9805;
+}
+
+.head li a {
+    font-size: 12px;
+    color: #fff;
+}
+
+.navbox {
+    float: right;
+}
+
+.navbox li {
+    position: relative;
+    float: left;
+    padding: 0 15px;
+    border-left: 1px solid #fff;
+    border-color: transparent #fff transparent #fff;
+    font-size: 12px;
+    color: #fff;
+}
+
+.navbox li:hover {
+    background-color: #ff9805;
+}
+
+.navbox li a {
+    color: #fff;
+}
+
+.navbox li img {
+    transform: translateY(50%);
+    margin-bottom: 4px;
+}
+
+#debark-show:hover #debark {
+    display: block;
+}
+
+#debark a:hover {
+    background-color: #ff7805;
+}
+
+#debark {
+    display: none;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+
+#debark a {
+    display: block;
+    padding: 0 15px;
+    border-top: 1px solid #fff;
+    background-color: #3ba2a5;
+}
+
+section {
+    width: 1200px;
+    height: 612px;
+    margin: 0 auto;
+    padding-top: 67px;
+    text-align: center;
+    background-image: url(houseimg/section.png);
+}
+
+
+/* 回到顶部css */
+
+.go-top {
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    margin-top: -45px;
+    width: 30px;
+    height: 90px;
+    text-align: center;
+    z-index: 2;
+    border: 1px solid skyblue;
+    box-sizing: border-box;
+    background-color: #20d0d6;
+    color: #fff;
+    cursor: pointer;
+}
+
+section h1 {
+    font-size: 30px;
+    font-weight: 400;
+    color: #3f3f40;
+}
+
+section p {
+    margin-top: 10px;
+    color: #0a0808;
+}
+
+.introduce {
+    margin-top: 36px;
+}
+
+section span {
+    display: block;
+    line-height: 24px;
+    font-size: 12px;
+    color: #666666;
+}
+
+section button {
+    width: 135px;
+    height: 28px;
+    margin: 30px 0;
+    border-radius: 28px;
+    border: 1px solid #26abb0;
+    outline-style: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: #26abb0;
+}
+
+section ul {
+    width: 930px;
+    height: 197px;
+    margin: 12px auto;
+}
+
+section ul li {
+    position: relative;
+    float: left;
+    width: 300px;
+    height: 152px;
+    padding-top: 45px;
+    margin-left: 10px;
+    background-color: #fff;
+}
+
+section li img {
+    width: 45px;
+    height: 45px;
+}
+
+.backgroundc {
+    background-color: #009da2;
+    color: #fff;
+}
+
+section li p {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    color: #666666;
+}
+
+section li span {
+    display: block;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666666;
+}
+
+article {
+    position: relative;
+    width: 1200px;
+    height: 345px;
+    margin: 0 auto;
+    background-image: url(houseimg/store.png);
+}
+
+.suspends {
+    position: absolute;
+    top: 0;
+    width: 1200px;
+    height: 345px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.suspends p {
+    margin-top: 115px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.suspends .btn {
+    width: 115px;
+    height: 24px;
+    margin-top: 28px;
+    border: 1px solid #fff;
+    border-radius: 24px;
+    background-color: rgba(168, 168, 168, .5);
+    outline-style: none;
+    cursor: pointer;
+    font-size: 10px;
+    color: #fff;
+}
+
+.suspends ul {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.suspends ul li {
+    float: left;
+}
+
+.suspends li a {
+    font-size: 12px;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.suspends li a:hover {
+    font-size: 14px;
+}
+
+.suspends li span {
+    color: #fff;
+}
