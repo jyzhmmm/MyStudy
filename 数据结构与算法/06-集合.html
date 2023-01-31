@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Set() {
+            this.items = {}
+        }
+
+        Set.prototype.add = function(key) {
+            if (this.has(key)) {
+                return false
+            }
+            this.items[key] = key
+            return true
+        }
+
+        Set.prototype.has = function(key) {
+                return this.items.hasOwnProperty(key)
+            }
+            // remove删除元素
+        Set.prototype.remove = function(key) {
+                if (!this.has(key)) {
+                    return false
+                }
+                delete this.items[key]
+                return true
+            }
+            // 清除所有
+        Set.prototype.clear = function() {
+                this.items = {}
+            }
+            // size
+        Set.prototype.size = function() {
+                return Object.keys(this.items).length
+            }
+            // 获取集合中所有值
+        Set.prototype.values = function() {
+            return Object.keys(this.items)
+        }
+        const set = new Set()
+        set.add(0)
+        set.add(1)
+        set.add(4)
+        console.log(set.has(1))
+        console.log(set.has(12))
+        console.log(set)
+        console.log(set.remove(1))
+        console.log(set)
+        console.log(set.values())
+    </script>
+</body>
+
+</html>

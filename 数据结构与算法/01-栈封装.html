@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Stack() {
+            // 用数组结构作为栈结构
+            this.items = []
+                // 进栈
+            Stack.prototype.push = function(element) {
+                    this.items.push(element)
+                }
+                // 出栈
+            Stack.prototype.pop = function() {
+                    return this.items.pop()
+                }
+                // 查找栈顶元素
+            Stack.prototype.peek = function() {
+                    return this.items[this.items.length - 1]
+                }
+                // 判断栈是否为空
+            Stack.prototype.isEmpty = function() {
+                    return this.items.length === 0
+                }
+                // 获取栈中元素个数
+            Stack.prototype.size = function() {
+                    return this.items.length
+                }
+                // toString方法
+            Stack.prototype.toString = function() {
+                let str = ''
+                for (item of this.items) {
+                    str += item + ' '
+                }
+                return str
+            }
+        }
+        // 使用栈 十进制转二进制
+        function dec2bin(decNum) {
+            const stack = new Stack()
+            while (decNum > 0) { // 循环压栈
+                stack.push(decNum % 2)
+                decNum = Math.floor(decNum / 2)
+            }
+            let temp = ''
+            while (!stack.isEmpty()) { // 出栈获取结果
+                temp += stack.pop()
+            }
+            return temp
+        }
+        console.log(dec2bin(1000))
+    </script>
+</body>
+
+</html>

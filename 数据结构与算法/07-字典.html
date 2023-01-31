@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Map() {
+            this.items = {}
+        }
+        Map.prototype.set = function(key, value) {
+            this.items[key] = value
+        }
+        Map.prototype.get = function(key) {
+            if (this.has(key)) {
+                return this.items[key]
+            } else {
+                return null
+            }
+        }
+        Map.prototype.has = function(key) {
+            return this.items.hasOwnProperty(key)
+        }
+        Map.prototype.delete = function(key) {
+            if (!this.items[key]) {
+                return false
+            }
+            delete this.items[key]
+            return true
+        }
+    </script>
+</body>
+
+</html>

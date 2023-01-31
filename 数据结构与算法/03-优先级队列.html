@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function PriorityQueue() {
+            this.items = []
+
+            function QueueElement(element, priority) {
+                this.element = element; //数据项
+                this.priority = priority; // 优先级
+            }
+
+            // 插入方法
+            PriorityQueue.prototype.enqueue = function(element, priority) {
+                    const queueElement = new QueueElement(element, priority)
+                        //判断队列是否为空
+                    if (this.items.length == 0) {
+                        this.items.push(queueElement)
+                    } else {
+                        let temp = false
+                        for (let i = 0; i < this.items.length; i++) {
+                            // 比较优先级大小
+                            if (queueElement.priority < this.items[i].priority) {
+                                this.items.splice(i, 0, queueElement)
+                                temp = true
+                                break
+                            }
+                        }
+                        if (!temp) {
+                            this.items.push(queueElement)
+                        }
+                    }
+                }
+                // 出队
+            PriorityQueue.prototype.dequeue = function() {
+                    return this.items.shift()
+                }
+                // 查看队头元素
+            PriorityQueue.prototype.front = function() {
+                    return this.items[0]
+                }
+                // 判断队列是否为空
+            PriorityQueue.prototype.isEnpty = function() {
+                    return this.items.length == 0
+                }
+                // 查看队列中的元素个数
+            PriorityQueue.prototype.size = function() {
+                    return this.items.length
+                }
+                // toString
+            PriorityQueue.prototype.toString = function() {
+                let str = ''
+                for (item of this.items) {
+                    str += item.element + ' ' + item.priority + ' '
+                }
+                return str
+            }
+        }
+
+        const pq = new PriorityQueue()
+        pq.enqueue('qwe', 12)
+        pq.enqueue('ert', 45)
+        pq.enqueue('fg', 9)
+        console.log(pq.toString())
+    </script>
+</body>
+
+</html>

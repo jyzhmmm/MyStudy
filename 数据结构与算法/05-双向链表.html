@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function DoublelinkList() {
+            this.head = null
+            this.tail = null
+            this.length = 0
+                // 内部类
+            function Node(data) {
+                this.data = data;
+                this.next = null;
+                this.pre = null; // 前指针
+            }
+
+            //append链表尾部添加节点
+            DoublelinkList.prototype.append = function(element) {
+                    const newNode = new Node(element)
+                    if (this.head == null) {
+                        this.head = newNode
+                        this.tail = newNode
+                    } else {
+                        newNode.pre = this.tail;
+                        this.tail.next = newNode
+                        this.tail = newNode
+                    }
+                    this.length += 1
+                }
+                // toString
+            DoublelinkList.prototype.toString = function() {
+                    return this.backwardString()
+                }
+                // 向前遍历链表
+            DoublelinkList.prototype.forwardString = function() {
+                    let current = this.tail
+                    let str = ''
+                    while (current) {
+                        str += current.data + ' '
+                        current = current.pre
+                    }
+                    return str
+                }
+                // 向后遍历链表
+            DoublelinkList.prototype.backwardString = function() {
+                    let current = this.head
+                    let str = ''
+                    while (current) {
+                        str += current.data + ' '
+                        current = current.next
+                    }
+                    return str
+                }
+                // 链表特定位置插入节点
+            DoublelinkList.prototype.insert = function(element, position) {
+                    // 越界判断
+                    if (position < 0 || position > this.length) return false
+                    const newNode = new Node(element)
+                    if (this.length == 0) {
+                        this.head = newNode
+                        this.tail = newNode
+                    } else {
+                        if (position == 0) {
+                            newNode.next = this.head
+                            this.head.pre = newNode
+                            this.head = newNode
+                        } else if (position == this.length) {
+                            newNode.pre = this.tail
+                            this.tail.next = newNode
+                            this.tail = newNode
+                        } else {
+                            // 遍历节点
+                            let current = this.head
+                            let temp = 0
+                            while (position > temp) {
+                                current = current.next
+                                temp += 1
+                            }
+                            // 插入节点
+                            newNode.next = current // 新节点的后面一个节点   
+                            newNode.pre = current.pre // 新节点前指针节点
+                            current.pre.next = newNode //新节点前指针节点
+                            current.pre = newNode // 新节点的后面一个节点
+
+                        }
+                    }
+                    this.length += 1
+                    return true
+                }
+                // get 得到对应位置节点数据
+            DoublelinkList.prototype.get = function(position) {
+                    // 越界判断
+                    if (position < 0 || position >= this.length) return null
+                    let current = this.head
+                    let temp = 0
+                    while (position > temp++) {
+                        current = current.next
+                    }
+                    return current.data
+                }
+                // indexOf
+            DoublelinkList.prototype.indexOf = function(data) {
+                    let current = this.head
+                    let temp = 0
+                    while (current) {
+                        if (current.data == data) {
+                            return temp
+                        }
+                        current = current.next
+                        temp += 1
+                    }
+                    return -1
+                }
+                // update修改节点元素
+            DoublelinkList.prototype.update = function(position, newDate) {
+                    // 越界判断
+                    if (position < 0 || position >= this.length) return false
+                    let current = this.head
+                    let temp = 0
+                    while (position > temp++) {
+                        current = current.next
+                    }
+                    current.data = newDate
+                    return true
+                }
+                // removeAt从链表的特定位置删除一项
+            DoublelinkList.prototype.removeAt = function(position) {
+                    // 越界判断
+                    if (position < 0 || position >= this.length) return false
+                        //查找节点
+                    let current = this.head
+                    if (this.length == 1) {
+                        this.head = null;
+                        this.tail = null;
+                    } else {
+                        if (position == 0) {
+                            this.head.next.pre = null
+                            this.head = this.head.next;
+                        } else if (position == this.length - 1) {
+                            current = this.tail
+                            this.tail.pre.next = null;
+                            this.tail = this.tail.pre
+                        } else {
+                            let temp = 0
+                            while (position > temp++) {
+                                current = current.next
+                            }
+                            current.pre.next = current.next
+                            current.next.pre = current.pre
+                        }
+                    }
+                    this.length -= 1
+                    return current.data
+                }
+                // remove移出数据节点
+            DoublelinkList.prototype.remove = function(data) {
+                    let index = this.indexOf(data)
+                    return this.removeAt(index)
+                }
+                // 判断是否为空
+            DoublelinkList.prototype.isEnpty = function() {
+                    return this.length == 0
+                }
+                // 查看链表中的元素个数
+            DoublelinkList.prototype.size = function() {
+                return this.length
+            }
+        }
+
+        const dblist = new DoublelinkList()
+        dblist.append('qwe')
+        dblist.append('mnb')
+        dblist.append('zxc')
+        console.log(dblist.toString())
+        dblist.insert('asd', 1)
+        console.log(dblist.forwardString())
+        console.log(dblist.get(3))
+        console.log(dblist.indexOf('as'))
+        console.log(dblist.update(1, 'qdc'))
+        console.log(dblist.toString())
+        console.log(dblist.removeAt(0))
+        console.log(dblist.toString())
+        console.log(dblist.remove('zxc'))
+        console.log(dblist.size())
+    </script>
+</body>
+
+</html>
