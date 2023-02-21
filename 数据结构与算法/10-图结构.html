@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./02-队列结构.html"></script>
 </head>
 
 <body>
@@ -22,8 +23,47 @@
                 }
                 // 添加边  无向图
             Graph.prototype.addEdge = function(v1, v2) {
-                this.edges.get(v1).push(v2)
-                this.edges.get(v2).push(v1)
+                    this.edges.get(v1).push(v2)
+                    this.edges.get(v2).push(v1)
+                }
+                // 初始化状态颜色，白灰黑，
+            Graph.prototype.initializeColor = function() {
+                    const colors = []
+                    for (let i = 0; i < this.vertexes.length; i++) {
+                        colors[this.vertexes[i]] = 'white'
+                    }
+                    return colors
+                }
+                // 实现广度优先搜索（BFS）
+            Graph.prototype.bfs = function(initV, handle) {
+                let colors = this.initializeColor()
+                    // 创建队列
+                const queue = new Queue()
+                queue.enqueue(initV)
+
+                // 循环取出队列元素
+                while (!queue.isEmpty()) {
+                    let v = queue.dequeue()
+                        // 获取相连顶点
+                    let vList = this.edages.get(v)
+                        //设置v颜色为灰色
+                    colors[v] = 'grey'
+
+                    //遍历所有顶点加入队列
+                    for (let i = 0; i < vList.length; i++) {
+                        let e = vList[i]
+                        if (colors[e] == 'white') {
+                            colors[e] = 'grey'
+                            queue.enqueue(e)
+                        }
+                    }
+
+                    // 访问节点
+                    handle(v)
+
+                    // 将顶点设置为黑色
+                    colors[v] = 'black'
+                }
             }
 
         }

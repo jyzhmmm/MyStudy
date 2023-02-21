@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class ArrayList {
+            // 属性存值值
+            array = []
+
+            insert(...value) {
+                if (value.length == 1) {
+                    this.array.push(value)
+                } else {
+                    value.forEach(item => this.array.push(item))
+                }
+            }
+
+            toString() {
+                return this.array.join()
+            }
+
+            // 随机打乱生成不重复的最小到最大值直接的随机数
+            randomSort(min, max) {
+                let number = this.array.length
+                let newarr = []
+                for (let i = 0; i < number; i++) {
+                    let temp = Math.floor(Math.random() * (max - min + 1) + min)
+                    if (newarr.indexOf(temp) == -1) {
+                        newarr.push(temp)
+                    } else {
+                        i--
+                    }
+                }
+                this.array = newarr
+            }
+
+            // 交换位置数据
+            swap(m, n) {
+                let temp = this.array[m]
+                this.array[m] = this.array[n]
+                this.array[n] = temp
+            }
+
+            // 冒泡排序
+            bubbleSort() {
+                for (let i = 0; i < this.array.length - 1; i++) {
+                    for (let j = 0; j < this.array.length - i - 1; j++) {
+                        if (this.array[j] > this.array[j + 1]) {
+                            this.swap(j, j + 1)
+                        }
+                    }
+                }
+            }
+
+            // 选择排序
+            selectionSort() {
+                for (let i = 0; i < this.array.length - 1; i++) {
+                    let min = i
+                    for (let j = i + 1; j < this.array.length; j++) {
+                        if (this.array[min] > this.array[j]) {
+                            min = j
+                        } // 循环完一轮，拿到最小值索引
+                    }
+                    this.swap(min, i)
+                }
+            }
+
+            // 插入排序    看成局部有序，每一个元素，向前面有序的元素比较
+            insertSort() {
+                for (let i = 1; i < this.array.length; i++) {
+                    let temp = this.array[i]
+                    let j = i
+                    while (this.array[j - 1] > temp && j > 0) {
+                        this.array[j] = this.array[j - 1]
+                        j--
+                    }
+                    this.array[j] = temp
+                }
+            }
+
+            // 希尔排序
+            shellSort() {
+                let length = this.array.length
+                    // 初始化增量
+                let gap = Math.floor(length / 2)
+                    // 分组排序
+                while (gap >= 1) {
+                    for (let i = gap; i < length; i++) {
+                        let temp = this.array[i]
+                        let j = i
+                            // 每一组相当于进行插入排序
+                        while (this.array[j - gap] > temp && j > gap - 1) {
+                            this.array[j] = this.array[j - gap]
+                            j -= gap
+                        }
+                        this.array[j] = temp
+                    }
+                    // 执行完一轮，分组增量要改变
+                    gap = Math.floor(gap / 2)
+                }
+            }
+
+            // 快速排序
+
+        }
+
+        const list = new ArrayList()
+        list.insert(1, 5, 3, 18, 4, 8, 12)
+
+        console.log(list.toString())
+        list.bubbleSort()
+        console.log(list.toString() + '    ' + '冒泡排序')
+
+        list.randomSort(0, 100)
+        console.log(list.toString())
+        list.selectionSort()
+        console.log(list.toString() + '    ' + '选择排序')
+
+        list.randomSort(0, 100)
+        console.log(list.toString())
+        list.insertSort()
+        console.log(list.toString() + '    ' + '插入排序')
+
+        list.randomSort(0, 100)
+        console.log(list.toString())
+        list.shellSort()
+        console.log(list.toString() + '    ' + '希尔排序')
+    </script>
+</body>
+
+</html>
