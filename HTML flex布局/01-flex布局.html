@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            background-color: skyblue;
+            width: 80%;
+            height: 400px;
+            flex-direction: column;
+            margin: 0 auto;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        div span {
+            width: 100px;
+            height: 50px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 父项属性
+        flex-direction:设置主轴方向  column属性值 设置y轴为主轴， 默认x向右为主轴
+
+        justify-content:设置主轴上的子元素排列方式 flex-end向右对齐，默认向左，cneter居中，
+        space-around平分空间  space-between 先两边贴边，再平分剩余空间
+
+        flex-wrap：设置子元素是否换行   默认不换行，缩小子元素排列  wrap属性值 换行
+
+        align-content:设置侧轴上的子元素排列方式（子轴多行时实现 必须换行）flex-end向右对齐，默认向左，cneter居中，
+        space-around平分空间  space-between 先两边贴边，再平分剩余空间
+
+        align-items:设置侧轴上的子元素排列方式（子轴单行时实现）flex-start flex-end center
+
+        flex-flow:复合属性，相当于设置了flex-direction和flex-wrap   属性值有：column wrap
+     -->
+
+    <!-- 子项属性
+        flex:1  剩余空间单独占一份 
+        align-self: flex-start flex-end center  设置子元素自己单独在侧轴上的位置
+        order:-1 数值越小排在子元素最前面 默认是0
+      -->
+    <div>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</body>
+
+</html>

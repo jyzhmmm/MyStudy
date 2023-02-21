@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Graph() {
+            // 属性：顶点/边
+            this.vertexes = [] // 顶点
+            this.edges = new Map() // 存储边  一个顶点对应一组边
+
+            // 添加顶点
+            Graph.prototype.addVertex = function(v) {
+                    this.vertexes.push(v)
+                    this.edges.set(v, [])
+                }
+                // 添加边  无向图
+            Graph.prototype.addEdge = function(v1, v2) {
+                this.edges.get(v1).push(v2)
+                this.edges.get(v2).push(v1)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

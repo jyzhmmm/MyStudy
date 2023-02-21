@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function BinarySerchTree() {
+
+            function Node(key) {
+                this.right = null
+                this.key = key
+                this.left = null
+            }
+
+            this.root = null
+
+            BinarySerchTree.prototype.insert = function(key) {
+                const newNode = new Node(key)
+
+                if (this.root == null) {
+                    this.root = newNode
+                } else {
+                    this.insertNode(this.root, newNode)
+                }
+            }
+
+            // 递归遍历左右子树
+            BinarySerchTree.prototype.insertNode = function(node, newNode) {
+                    if (newNode.key < node.key) { // 放在左子树里
+                        if (node.left == null) {
+                            node.left = newNode
+                        } else {
+                            this.insertNode(node.left, newNode)
+                        }
+                    } else { // 向右查找
+                        if (node.right == null) {
+                            node.right = newNode
+                        } else {
+                            this.insertNode(node.right, newNode)
+                        }
+                    }
+                }
+                // 树的先序遍历
+            BinarySerchTree.prototype.preOrderTraversal = function(handler) {
+                this.preOrderTraversalNode(this.root, handler)
+            }
+            BinarySerchTree.prototype.preOrderTraversalNode = function(node, handler) {
+                if (node != null) {
+                    // 打印经过的节点
+                    handler(node.key)
+                        // 处理经过节点的左子节点
+                    this.preOrderTraversalNode(node.left, handler)
+                        // 处理经过节点的右子节点
+                    this.preOrderTraversalNode(node.right, handler)
+                }
+
+            }
+
+            // 树的中序遍历
+            BinarySerchTree.prototype.midOrderTraversal = function(handler) {
+                this.midOrderTraversalNode(this.root, handler)
+            }
+            BinarySerchTree.prototype.midOrderTraversalNode = function(node, handler) {
+                if (node != null) {
+                    this.midOrderTraversalNode(node.left, handler)
+                    handler(node.key)
+                    this.midOrderTraversalNode(node.right, handler)
+                }
+            }
+
+            // 树的后序遍历
+            BinarySerchTree.prototype.postOrderTraversal = function(handler) {
+                this.postOrderTraversalNode(this.root, handler)
+            }
+            BinarySerchTree.prototype.postOrderTraversalNode = function(node, handler) {
+                if (node != null) {
+                    this.postOrderTraversalNode(node.left, handler)
+                    this.postOrderTraversalNode(node.right, handler)
+                    handler(node.key)
+                }
+            }
+
+            // 获取最大值和最小值
+            BinarySerchTree.prototype.min = function() {
+                let node = this.root
+                let key = null // 如果root为null则没有节点，返回null
+                while (node != null) {
+                    key = node.key
+                    node = node.left
+                }
+                return key
+            }
+
+            BinarySerchTree.prototype.max = function() {
+                let node = this.root
+                let key = null // 如果root为null则没有节点，返回null
+                while (node != null) {
+                    key = node.key
+                    node = node.right
+                }
+                return key
+            }
+
+            // 搜索某一个key
+            BinarySerchTree.prototype.search = function(key) {
+                let node = this.root
+
+                while (node != null) {
+                    if (key < node.key) {
+                        node = node.left
+                    } else if (key > node.key) {
+                        node = node.right
+                    } else {
+                        return true
+                    }
+                }
+
+                return false
+            }
+        }
+
+        const bst = new BinarySerchTree()
+        bst.insert(45)
+        bst.insert(34)
+        bst.insert(21)
+        bst.insert(16)
+        bst.insert(67)
+        bst.insert(42)
+        bst.insert(49)
+        bst.insert(8)
+
+        // 利用闭包打印
+        let result = ''
+            // 先序
+        bst.preOrderTraversal(function(key) {
+            result += key + ' '
+        })
+
+        alert(result)
+    </script>
+</body>
+
+</html>
